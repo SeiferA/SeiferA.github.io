@@ -1,7 +1,8 @@
-<html>
+<html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Pairings - Warehouse Mid-Year Standard Tourney - 06/07/2025 13:54:08</title>
+    <title>Match Slips - Warehouse Mid-Year Standard Tourney - 06/07/2025 14:26:06</title>
+
     <!--@formatter:off-->
     <style>
         body.report {
@@ -42,116 +43,497 @@ th.footer {
 
     </style>
     <!--@formatter:on-->
-    <style type="text/css">
-        td.left, th.left {
-            border: 0px none black;
-            border-left: thin solid black;
-            border-bottom: thin solid black;
-            border-top: thin solid black;
+
+    <!--@formatter:off-->
+    <style>
+        .match_slip {
+            width: 700px;
+            padding: 0;
+            page-break-before: avoid;
+            page-break-inside: avoid;
+            page-break-after: avoid;
+            orphans: 0;
+            widows: 0;
         }
 
-        td.center, th.center {
-            border: 0px none black;
-            border-bottom: thin solid black;
-            border-top: thin solid black;
+        .table-font-size {
+            font-size: [[TABLE_FONT_SIZE]]pt;
         }
 
-        td.right, th.right {
-            border: 0px none black;
-            border-right: thin solid black;
-            border-bottom: thin solid black;
-            border-top: thin solid black;
+        /* the barcode must have a quiet zone */
+        .barcode {
+            padding: 15px 5px;
+
+            border: none;
         }
 
-        td.full, th.full {
-            border: thin solid black;
-        }
     </style>
+    <!--@formatter:on-->
+    <style media="all">
+        body {
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .player-1-barcode img {
+            transform: rotate(90deg) translate(-86px, 15px);
+            position: absolute;
+            width: 25px;
+            height: 200px;
+        }
+
+        .player-2-barcode img {
+            transform: rotate(90deg) translate(-86px, 15px);
+            position: absolute;
+            width: 25px;
+            height: 200px;
+        }
+
+        .tie-barcode img {
+            transform: rotate(90deg) translate(-86px, 15px);
+            position: absolute;
+            width: 25px;
+            height: 200px;
+        }
+
+        table {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            padding: 0;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        td {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            border: 1px inset black;
+            background: white;
+            color: black;
+        }
+
+        @page {
+            size: 8.5in 11in;
+            margin: 0.22in 0.0in 0.0in 0.0in;
+        }
+
+        /* 
+            1 inch = 96 CSS-defined px (not pixels) so a 700px form 
+            is actually 7.29167 inches wide.  I am using 700px for
+            easier math and finer adjustments. -- Jeff
+        */
+
+        .heading {
+            font-variant: small-caps;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .small {
+            font-size: 10px;
+        }
+        
+        .pagebreak {
+            height: 0px;
+            page-break-before: always;
+        }
+
+        td.matchrecord {
+            height: 50px;
+        }
+
+        tr.nobottomborder td {
+            border-bottom: none;
+        }
+
+        tr.noleftborder td {
+            border-left: none;
+        }
+
+        tr.norightborder td {
+            border-right: none;
+        }
+
+        .noborders {
+            border: none;
+        }
+
+        tr.notopborder td {
+            border-top: none;
+        }
+
+        .debug {
+            border-color: red;
+        }
+
+        .match_slip_format {
+            height: 216px;
+            margin: 0 auto;
+            border-collapse: separate;
+        }
+
+        .player-1-win {
+            width: 40px;
+            border-width: 0;
+            border-style: solid none;
+            border-color: rgb(0, 0, 0);
+            position: relative;
+        }
+
+        .player-1-win-details {
+            position: absolute;
+            margin-top: 2px;
+            width: 208px;
+            height: 100px;
+            text-align: left;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            transform-origin: left top;
+            transform: rotate(90deg) translate(0px, -40px);
+        }
+
+        .player-1-info {
+            width: 180px;
+            border-width: 2px 1px 2px 2px;
+            border-style: none none none solid;
+            border-color: rgb(0, 0, 0);
+            position: relative;
+        }
+
+        .player-1-info-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 212px;
+            height: 180px;
+            text-align: center;
+            padding: 0;
+            overflow: hidden;
+            transform-origin: right top;
+            transform: rotate(-90deg) translate(0px, -212px);
+        }
+
+        .tied-info {
+            width: 260px;
+            vertical-align: middle;
+            border: 1px dashed rgb(0, 0, 0);
+            position: relative;
+        }
+
+        .tied-info-details {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            padding: 0;
+            overflow: auto;
+            width: 100%;
+            vertical-align: bottom;
+        }
+
+        .player-2-info {
+            width: 180px;
+            border-width: 2px 2px 2px 1px;
+            border-style: none solid none none;
+            border-color: rgb(0, 0, 0);
+            position: relative;
+        }
+
+        .player-2-info-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 212px;
+            height: 180px;
+            text-align: center;
+            padding: 0;
+            overflow: hidden;
+            transform-origin: left top;
+            transform: rotate(90deg) translate(0px, -177px);
+        }
+
+        .player-2-win {
+            width: 40px;
+            border-width: 0;
+            border-style: solid none;
+            border-color: rgb(0, 0, 0);
+            position: relative;
+        }
+
+        .player-2-win-details {
+            position: absolute;
+            margin-top: 2px;
+            width: 208px;
+            height: 100px;
+            text-align: left;
+            overflow: hidden;
+            top: 0;
+            right: 0;
+            transform-origin: right top;
+            transform: rotate(-90deg) translate(0px, -40px);
+        }
+
+        .below-barcode-padding {
+            padding-top: 25px;
+        }
+
+        .tie-instructions {
+            margin-top: 4px;
+        }
+        
+        div.pagebreak {
+            height: 0px;
+        }
+        
+        hr {
+            margin: 24px;
+        }
+
+    </style>
+    <script>
+        let display = function displayAlert() {
+            alert("For match slips to print correctly, make sure your page layout is portrait and your headers and footers are turned OFF.\n\n\n\nView your first report in Print Preview to verify margins and ensure slips are fitting properly on the page.");
+        }
+    </script>
 </head>
-<body class="report">
+<body onload="display()" class="report">
 <!-- [[BEGIN_REPORT]] -->
 
-<p>
-<h3>Pairings - Round 2</h3>
-Tournament: <b>Warehouse Mid-Year Standard Tourney</b>
-</p>
-<BR>
-<H3>All</H3>
-<table class="report">
-    <tr>
-        <th scope="col" class="full"><strong>Table</strong></th>
-        <th scope="col" class="left"><strong>Name</strong></th>
-        <th scope="col" class="center"></th>
-        <th scope="col" class="right"><strong>Opponent</strong></th>
-    </tr>
-    
-    <tr>
-        <td align="left" class="full">2</td>
-        <td align="left" class="left">Adam Lester&nbsp;(1/0/0 (3) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td align="center" class="center">vs.&nbsp;&nbsp;</td>
-        <td align="left" class="right">Daniel Gallagher&nbsp;(1/0/0 (3) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    
-    <tr>
-        <td align="left" class="full">1</td>
-        <td align="left" class="left">Christopher Salazar&nbsp;(1/0/0 (3) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td align="center" class="center">vs.&nbsp;&nbsp;</td>
-        <td align="left" class="right">Dexter Siberell&nbsp;(1/0/0 (3) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    
-    <tr>
-        <td align="left" class="full">4</td>
-        <td align="left" class="left">Dakota Cherrone&nbsp;(0/1/0 (0) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td align="center" class="center">vs.&nbsp;&nbsp;</td>
-        <td align="left" class="right">Theo Greenawalt&nbsp;(0/1/0 (0) - JR)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    
-    <tr>
-        <td align="left" class="full">2</td>
-        <td align="left" class="left">Daniel Gallagher&nbsp;(1/0/0 (3) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td align="center" class="center">vs.&nbsp;&nbsp;</td>
-        <td align="left" class="right">Adam Lester&nbsp;(1/0/0 (3) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    
-    <tr>
-        <td align="left" class="full">1</td>
-        <td align="left" class="left">Dexter Siberell&nbsp;(1/0/0 (3) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td align="center" class="center">vs.&nbsp;&nbsp;</td>
-        <td align="left" class="right">Christopher Salazar&nbsp;(1/0/0 (3) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    
-    <tr>
-        <td align="left" class="full">3</td>
-        <td align="left" class="left">Jay C&nbsp;(0/1/0 (0) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td align="center" class="center">vs.&nbsp;&nbsp;</td>
-        <td align="left" class="right">Raymond Harrington&nbsp;(0/1/0 (0) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    
-    <tr>
-        <td align="left" class="full">3</td>
-        <td align="left" class="left">Raymond Harrington&nbsp;(0/1/0 (0) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td align="center" class="center">vs.&nbsp;&nbsp;</td>
-        <td align="left" class="right">Jay C&nbsp;(0/1/0 (0) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    
-    <tr>
-        <td align="left" class="full">4</td>
-        <td align="left" class="left">Theo Greenawalt&nbsp;(0/1/0 (0) - JR)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td align="center" class="center">vs.&nbsp;&nbsp;</td>
-        <td align="left" class="right">Dakota Cherrone&nbsp;(0/1/0 (0) - MA)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    </tr>
-    
-</table>
-<p>&nbsp;</p>
-<P>* This player has received one or more losses for tardiness and will always be ordered, in Swiss rounds, after players with the same match record who were on time.</P>
-<table class="footer" width="100%">
-    <tr>
-        <td class="footer" width="33%" align="left"><b>Warehouse Mid-Year Standard Tourney</b></td>
-        <td class="footer" width="33%" align="center"><b>Chris Gloria</b></td>
-        <td class="footer" width="33%" align="right"><b>06/07/2025 13:54:08</b></td>
-    </tr>
-</table>
 
+<table class="match_slip match_slip_format">
+    <tbody>
+    <tr class="noborders">
+        <td class="player-1-win">
+            <div class="barcode1 small rotate-left player-1-win-details">
+                <span style="float: right; text-align: right;">2/0/0 (6)<br><u>Initial below:</u></span>Dexter Siberell<br><span
+                    style="font-size: 18px">1501444  - MA <span></span></span></div>
+        </td>
+        <td class="player-1-info">
+            <div class="player1 player-1-info-details">
+                <i style="font-size: 10px;">key: 103113</i>
+                <!-- player1 barcode -->
+                <div class="player-1-barcode"><img src='images/103113.png'></div>
+                <div class="below-barcode-padding"><span style="font-size: 20px;" class="heading">Table #1</span><br><b
+                        style="font-size: 20px;">Dexter Siberell</b><br><br><b
+                        style="font-size: 16px;">WINNER</b><br><b
+                        style="font-size: 12px;">Player 1</b></div>
+            </div>
+        </td>
+        <td class="tied-info">
+            <div class="barcode3 small tied-info-details">
+                <i>key: 103131</i><br>
+                <!-- tie image -->
+                <div class="tie-barcode"><img src='images/103131.png'></div>
+                <div class="below-barcode-padding">
+                    <b>Warehouse Mid-Year Standard Tourney<br>
+                        Round 
+                        3 </b>
+                    <div class="tie-instructions">
+                        <i>checkmark who wins each game,<br>
+                            circle <b>WINNER</b> or <b>TIE</b> for the match,<br>
+                            then both players initial their end</i>
+                    </div>
+                    <div>
+                        <span style="font-size: 14px;">_______ ▢ game 1 ▢ _______<br>_______ ▢ game 2 ▢ _______<br>_______ ▢ game 3 ▢ _______</span><br><br><span style="font-size: 16px;"><b>TIE</b></span>
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td class="player-2-info">
+            <div class="player2 player-2-info-details">
+                <i style="font-size: 10px;">key: 103122</i>
+                <!-- player 2 barcode-->
+                <div class="player-2-barcode"><img src='images/103122.png'></div>
+                <div class="below-barcode-padding"><span style="font-size: 20px;" class="heading">Table #1</span><br><b
+                        style="font-size: 20px;">Adam Lester</b><br><br><b
+                        style="font-size: 16px;">WINNER</b><br><b
+                        style="font-size: 12px;">Player 2</b></div>
+            </div>
+        </td>
+        <td class="player-2-win">
+            <div class="barcode2 small player-2-win-details">
+                <span style="float: right; text-align: right;">2/0/0 (6)<br><u>Initial below:</u></span>Adam Lester<br><span
+                    style="font-size: 18px">4427771  - MA<span></span></span></div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<hr>
+<table class="match_slip match_slip_format">
+    <tbody>
+    <tr class="noborders">
+        <td class="player-1-win">
+            <div class="barcode1 small rotate-left player-1-win-details">
+                <span style="float: right; text-align: right;">1/1/0 (3)<br><u>Initial below:</u></span>Daniel Gallagher<br><span
+                    style="font-size: 18px">5381938  - MA <span></span></span></div>
+        </td>
+        <td class="player-1-info">
+            <div class="player1 player-1-info-details">
+                <i style="font-size: 10px;">key: 103211</i>
+                <!-- player1 barcode -->
+                <div class="player-1-barcode"><img src='images/103211.png'></div>
+                <div class="below-barcode-padding"><span style="font-size: 20px;" class="heading">Table #2</span><br><b
+                        style="font-size: 20px;">Daniel Gallagher</b><br><br><b
+                        style="font-size: 16px;">WINNER</b><br><b
+                        style="font-size: 12px;">Player 1</b></div>
+            </div>
+        </td>
+        <td class="tied-info">
+            <div class="barcode3 small tied-info-details">
+                <i>key: 103239</i><br>
+                <!-- tie image -->
+                <div class="tie-barcode"><img src='images/103239.png'></div>
+                <div class="below-barcode-padding">
+                    <b>Warehouse Mid-Year Standard Tourney<br>
+                        Round 
+                        3 </b>
+                    <div class="tie-instructions">
+                        <i>checkmark who wins each game,<br>
+                            circle <b>WINNER</b> or <b>TIE</b> for the match,<br>
+                            then both players initial their end</i>
+                    </div>
+                    <div>
+                        <span style="font-size: 14px;">_______ ▢ game 1 ▢ _______<br>_______ ▢ game 2 ▢ _______<br>_______ ▢ game 3 ▢ _______</span><br><br><span style="font-size: 16px;"><b>TIE</b></span>
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td class="player-2-info">
+            <div class="player2 player-2-info-details">
+                <i style="font-size: 10px;">key: 103220</i>
+                <!-- player 2 barcode-->
+                <div class="player-2-barcode"><img src='images/103220.png'></div>
+                <div class="below-barcode-padding"><span style="font-size: 20px;" class="heading">Table #2</span><br><b
+                        style="font-size: 20px;">Christopher Salazar</b><br><br><b
+                        style="font-size: 16px;">WINNER</b><br><b
+                        style="font-size: 12px;">Player 2</b></div>
+            </div>
+        </td>
+        <td class="player-2-win">
+            <div class="barcode2 small player-2-win-details">
+                <span style="float: right; text-align: right;">1/1/0 (3)<br><u>Initial below:</u></span>Christopher Salazar<br><span
+                    style="font-size: 18px">5164897  - MA<span></span></span></div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<hr>
+<table class="match_slip match_slip_format">
+    <tbody>
+    <tr class="noborders">
+        <td class="player-1-win">
+            <div class="barcode1 small rotate-left player-1-win-details">
+                <span style="float: right; text-align: right;">1/1/0 (3)<br><u>Initial below:</u></span>Dakota Cherrone<br><span
+                    style="font-size: 18px">5424003  - MA <span></span></span></div>
+        </td>
+        <td class="player-1-info">
+            <div class="player1 player-1-info-details">
+                <i style="font-size: 10px;">key: 103319</i>
+                <!-- player1 barcode -->
+                <div class="player-1-barcode"><img src='images/103319.png'></div>
+                <div class="below-barcode-padding"><span style="font-size: 20px;" class="heading">Table #3</span><br><b
+                        style="font-size: 20px;">Dakota Cherrone</b><br><br><b
+                        style="font-size: 16px;">WINNER</b><br><b
+                        style="font-size: 12px;">Player 1</b></div>
+            </div>
+        </td>
+        <td class="tied-info">
+            <div class="barcode3 small tied-info-details">
+                <i>key: 103337</i><br>
+                <!-- tie image -->
+                <div class="tie-barcode"><img src='images/103337.png'></div>
+                <div class="below-barcode-padding">
+                    <b>Warehouse Mid-Year Standard Tourney<br>
+                        Round 
+                        3 </b>
+                    <div class="tie-instructions">
+                        <i>checkmark who wins each game,<br>
+                            circle <b>WINNER</b> or <b>TIE</b> for the match,<br>
+                            then both players initial their end</i>
+                    </div>
+                    <div>
+                        <span style="font-size: 14px;">_______ ▢ game 1 ▢ _______<br>_______ ▢ game 2 ▢ _______<br>_______ ▢ game 3 ▢ _______</span><br><br><span style="font-size: 16px;"><b>TIE</b></span>
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td class="player-2-info">
+            <div class="player2 player-2-info-details">
+                <i style="font-size: 10px;">key: 103328</i>
+                <!-- player 2 barcode-->
+                <div class="player-2-barcode"><img src='images/103328.png'></div>
+                <div class="below-barcode-padding"><span style="font-size: 20px;" class="heading">Table #3</span><br><b
+                        style="font-size: 20px;">Raymond Harrington</b><br><br><b
+                        style="font-size: 16px;">WINNER</b><br><b
+                        style="font-size: 12px;">Player 2</b></div>
+            </div>
+        </td>
+        <td class="player-2-win">
+            <div class="barcode2 small player-2-win-details">
+                <span style="float: right; text-align: right;">1/1/0 (3)<br><u>Initial below:</u></span>Raymond Harrington<br><span
+                    style="font-size: 18px">5031655  - MA<span></span></span></div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<hr>
+<table class="match_slip match_slip_format">
+    <tbody>
+    <tr class="noborders">
+        <td class="player-1-win">
+            <div class="barcode1 small rotate-left player-1-win-details">
+                <span style="float: right; text-align: right;">0/2/0 (0)<br><u>Initial below:</u></span>Jay C<br><span
+                    style="font-size: 18px">5381941  - MA <span></span></span></div>
+        </td>
+        <td class="player-1-info">
+            <div class="player1 player-1-info-details">
+                <i style="font-size: 10px;">key: 103417</i>
+                <!-- player1 barcode -->
+                <div class="player-1-barcode"><img src='images/103417.png'></div>
+                <div class="below-barcode-padding"><span style="font-size: 20px;" class="heading">Table #4</span><br><b
+                        style="font-size: 20px;">Jay C</b><br><br><b
+                        style="font-size: 16px;">WINNER</b><br><b
+                        style="font-size: 12px;">Player 1</b></div>
+            </div>
+        </td>
+        <td class="tied-info">
+            <div class="barcode3 small tied-info-details">
+                <i>key: 103435</i><br>
+                <!-- tie image -->
+                <div class="tie-barcode"><img src='images/103435.png'></div>
+                <div class="below-barcode-padding">
+                    <b>Warehouse Mid-Year Standard Tourney<br>
+                        Round 
+                        3 </b>
+                    <div class="tie-instructions">
+                        <i>checkmark who wins each game,<br>
+                            circle <b>WINNER</b> or <b>TIE</b> for the match,<br>
+                            then both players initial their end</i>
+                    </div>
+                    <div>
+                        <span style="font-size: 14px;">_______ ▢ game 1 ▢ _______<br>_______ ▢ game 2 ▢ _______<br>_______ ▢ game 3 ▢ _______</span><br><br><span style="font-size: 16px;"><b>TIE</b></span>
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td class="player-2-info">
+            <div class="player2 player-2-info-details">
+                <i style="font-size: 10px;">key: 103426</i>
+                <!-- player 2 barcode-->
+                <div class="player-2-barcode"><img src='images/103426.png'></div>
+                <div class="below-barcode-padding"><span style="font-size: 20px;" class="heading">Table #4</span><br><b
+                        style="font-size: 20px;">Theo Greenawalt</b><br><br><b
+                        style="font-size: 16px;">WINNER</b><br><b
+                        style="font-size: 12px;">Player 2</b></div>
+            </div>
+        </td>
+        <td class="player-2-win">
+            <div class="barcode2 small player-2-win-details">
+                <span style="float: right; text-align: right;">0/2/0 (0)<br><u>Initial below:</u></span>Theo Greenawalt<br><span
+                    style="font-size: 18px">4862185  - JR<span></span></span></div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<hr>
 
 <!-- [[END_REPORT]] -->
 </body>
